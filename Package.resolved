@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "kindkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/KindKit/KindKit.git",
+      "state" : {
+        "revision" : "1e8938c00c653d7d96df77791ec24c6d4c3e77e2",
+        "version" : "0.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}
