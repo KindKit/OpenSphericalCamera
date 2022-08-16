@@ -9,11 +9,9 @@ import KindKitJson
 
 public final class OpenSphericalCamera {
     
-    let provider: KindKitApi.Api.Provider
+    public let provider: KindKitApi.Api.Provider
 
-    public init(
-        url: URL
-    ) {
+    public init(url: URL) {
         self.provider = .init(
             url: url
         )

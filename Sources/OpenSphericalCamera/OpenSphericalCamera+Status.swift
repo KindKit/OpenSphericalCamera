@@ -7,24 +7,23 @@ import KindKitJson
 
 public extension OpenSphericalCamera {
     
-    struct State<
-        SpecificDecoder : IJsonModelDecoder
-    > {
+    struct Status< SpecificDecoder : IJsonModelDecoder > {
         
-        public let battery: Float
+        public let state: OpenSphericalCamera.Command.State
         public let specific: SpecificDecoder.Model
         
     }
     
 }
 
-extension OpenSphericalCamera.State : IJsonModelDecoder {
+extension OpenSphericalCamera.Status : IJsonModelDecoder {
     
     public static func decode(_ json: Json) throws -> Self {
         return .init(
-            battery: try json.decode(Float.self, path: "state.batteryLevel"),
+            state: try json.decode(OpenSphericalCamera.Command.State.self, path: "state"),
             specific: try json.decode(SpecificDecoder.self)
         )
     }
     
 }
+

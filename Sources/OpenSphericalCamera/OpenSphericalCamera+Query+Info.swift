@@ -7,30 +7,45 @@ import KindKitApi
 import KindKitCore
 import KindKitJson
 
-extension OpenSphericalCamera.Query {
+public extension OpenSphericalCamera.Query {
     
     struct Info {
+    }
+    
+}
+
+public extension OpenSphericalCamera.Query.Info {
         
-        static func Request() -> Api.Request {
-            return .init(
-                method: .get,
-                path: .relative("/osc/info"),
-                timeout: 5
-            )
-        }
+    static func request() -> Api.Request {
+        return .init(
+            method: .get,
+            path: .relative("/osc/info"),
+            timeout: 5
+        )
+    }
+    
+}
+
+public extension OpenSphericalCamera.Query.Info {
+    
+    final class Response<
+        ManufacturerDecoder : IJsonValueDecoder,
+        ModelDecoder : IJsonValueDecoder,
+        SerialNumberDecoder : IJsonValueDecoder,
+        FirmwareVersionDecoder : IJsonValueDecoder,
+        SpecificDecoder : IJsonModelDecoder
+    > : OpenSphericalCamera.Query.Response<
+        OpenSphericalCamera.Info<
+            ManufacturerDecoder,
+            ModelDecoder,
+            SerialNumberDecoder,
+            FirmwareVersionDecoder,
+            SpecificDecoder
+        >
+    > {
         
-        final class Response<
-            ManufacturerDecoder : IJsonValueDecoder,
-            ModelDecoder : IJsonValueDecoder,
-            SerialNumberDecoder : IJsonValueDecoder,
-            FirmwareVersionDecoder : IJsonValueDecoder,
-            VendorDecoder : IJsonModelDecoder
-        > : OpenSphericalCamera.Query.Response< OpenSphericalCamera.Result.Info< ManufacturerDecoder, ModelDecoder, SerialNumberDecoder, FirmwareVersionDecoder, VendorDecoder > > {
-            
-            override func parse(meta: KindKitApi.Api.Response.Meta, result json: Json) throws -> Success {
-                return try json.decode(Success.JsonDecoder.self)
-            }
-            
+        override func parse(meta: KindKitApi.Api.Response.Meta, result json: Json) throws -> Success {
+            return try json.decode(Success.self)
         }
         
     }

@@ -3,11 +3,10 @@
 //
 
 import Foundation
-import KindKitJson
 
 public extension OpenSphericalCamera {
     
-    struct Result {
+    enum Command {
     }
     
 }

@@ -6,17 +6,20 @@ import Foundation
 import KindKitApi
 import KindKitJson
 
-extension OpenSphericalCamera {
+public extension OpenSphericalCamera {
     
     enum Query {
         
-        class Response< Success > : IApiResponse {
+        public class Response< Success > : IApiResponse {
             
-            typealias Success = Success
-            typealias Failure = OpenSphericalCamera.Error
-            typealias Result = Swift.Result< Success, Failure >
+            public typealias Success = Success
+            public typealias Failure = OpenSphericalCamera.Error
+            public typealias Result = Swift.Result< Success, Failure >
             
-            func parse(meta: KindKitApi.Api.Response.Meta, data: Data?) -> Result {
+            public init() {
+            }
+            
+            public func parse(meta: KindKitApi.Api.Response.Meta, data: Data?) -> Result {
                 if let data = data {
                     if let json = Json(data: data) {
                         do {
@@ -46,7 +49,7 @@ extension OpenSphericalCamera {
                 }
             }
             
-            func parse(error: Swift.Error) -> Result {
+            public func parse(error: Swift.Error) -> Result {
                 let nsError = error as NSError
                 switch nsError.domain {
                 case NSURLErrorDomain:
@@ -70,8 +73,7 @@ extension OpenSphericalCamera {
             }
             
             func parse(error json: Json) throws -> Failure {
-                let error = try json.decode(OpenSphericalCamera.Error.Internal.Decoder.self, path: "error")
-                return .internal(error)
+                return .internal(try json.decode(OpenSphericalCamera.Error.Internal.self, path: "error"))
             }
             
         }
