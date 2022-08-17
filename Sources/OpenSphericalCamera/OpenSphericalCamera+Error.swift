@@ -13,7 +13,7 @@ public extension OpenSphericalCamera {
         case notConnected
         case connectionLost
         case timeOut
-        case `internal`(Internal)
+        case detail(Detail)
         
     }
     

@@ -73,7 +73,7 @@ public extension OpenSphericalCamera {
             }
             
             func parse(error json: Json) throws -> Failure {
-                return .internal(try json.decode(OpenSphericalCamera.Error.Internal.self, path: "error"))
+                return .detail(try json.decode(OpenSphericalCamera.Error.Detail.self, path: "error"))
             }
             
         }
