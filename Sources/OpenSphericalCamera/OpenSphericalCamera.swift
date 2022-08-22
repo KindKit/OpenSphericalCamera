@@ -17,9 +17,13 @@ public final class OpenSphericalCamera {
     }
     #endif
 
-    public init(url: URL) {
+    public init(
+        url: URL,
+        configuration: URLSessionConfiguration = URLSessionConfiguration.default
+    ) {
         self.provider = .init(
-            url: url
+            url: url,
+            configuration: configuration
         )
     }
     
