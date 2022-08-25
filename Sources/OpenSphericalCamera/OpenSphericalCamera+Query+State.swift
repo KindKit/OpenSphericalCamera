@@ -36,7 +36,7 @@ public extension OpenSphericalCamera.Query.State {
     > {
         
         override func parse(meta: KindKitApi.Api.Response.Meta, result json: Json) throws -> Success {
-            return try json.decode(Success.self)
+            return try json.decode(Success.self, path: "state")
         }
         
     }
