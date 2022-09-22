@@ -3,9 +3,7 @@
 //
 
 import Foundation
-import KindKitApi
-import KindKitCore
-import KindKitJson
+import KindKit
 
 public extension OpenSphericalCamera.Query {
     
@@ -31,7 +29,7 @@ public extension OpenSphericalCamera.Query.Download {
     
     final class Response : OpenSphericalCamera.Query.Response< Data > {
         
-        override func parse(meta: KindKitApi.Api.Response.Meta, result data: Data) throws -> Success {
+        override func parse(meta: Api.Response.Meta, result data: Data) throws -> Success {
             guard let statusCode = meta.statusCode else {
                 throw Failure.invalidResponse
             }

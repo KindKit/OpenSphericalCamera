@@ -3,7 +3,7 @@
 //
 
 import Foundation
-import KindKitJson
+import KindKit
 
 public extension OpenSphericalCamera.Command {
     

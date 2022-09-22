@@ -15,17 +15,14 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/KindKit/KindKit.git",
-            .upToNextMajor(from: "0.1.0")
+            .upToNextMajor(from: "0.2.0")
         )
     ],
     targets: [
         .target(
             name: "OpenSphericalCamera",
             dependencies: [
-                .product(name: "KindKitApi", package: "KindKit"),
-                .product(name: "KindKitCore", package: "KindKit"),
-                .product(name: "KindKitFlow", package: "KindKit"),
-                .product(name: "KindKitJson", package: "KindKit")
+                .product(name: "KindKit", package: "KindKit")
             ]
         ),
         .testTarget(

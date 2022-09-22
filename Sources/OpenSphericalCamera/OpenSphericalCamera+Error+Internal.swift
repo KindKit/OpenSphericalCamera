@@ -3,8 +3,7 @@
 //
 
 import Foundation
-import KindKitCore
-import KindKitJson
+import KindKit
 
 public extension OpenSphericalCamera.Error {
     

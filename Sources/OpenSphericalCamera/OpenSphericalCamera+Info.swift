@@ -3,7 +3,7 @@
 //
 
 import Foundation
-import KindKitJson
+import KindKit
 
 public extension OpenSphericalCamera {
     
@@ -15,10 +15,10 @@ public extension OpenSphericalCamera {
         SpecificDecoder : IJsonModelDecoder
     > {
         
-        public let manufacturer: ManufacturerDecoder.Value
-        public let model: ModelDecoder.Value
-        public let serialNumber: SerialNumberDecoder.Value
-        public let firmwareVersion: FirmwareVersionDecoder.Value
+        public let manufacturer: ManufacturerDecoder.JsonDecoded
+        public let model: ModelDecoder.JsonDecoded
+        public let serialNumber: SerialNumberDecoder.JsonDecoded
+        public let firmwareVersion: FirmwareVersionDecoder.JsonDecoded
         public let supportUrl: URL
         public let gps: Bool
         public let gyro: Bool

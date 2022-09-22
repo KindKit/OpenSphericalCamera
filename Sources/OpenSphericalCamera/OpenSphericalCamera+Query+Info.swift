@@ -3,9 +3,7 @@
 //
 
 import Foundation
-import KindKitApi
-import KindKitCore
-import KindKitJson
+import KindKit
 
 public extension OpenSphericalCamera.Query {
     
@@ -44,7 +42,7 @@ public extension OpenSphericalCamera.Query.Info {
         >
     > {
         
-        override func parse(meta: KindKitApi.Api.Response.Meta, result json: Json) throws -> Success {
+        override func parse(meta: Api.Response.Meta, result json: Json) throws -> Success {
             return try json.decode(Success.self)
         }
         

@@ -3,13 +3,11 @@
 //
 
 import Foundation
-import KindKitApi
-import KindKitCore
-import KindKitJson
+import KindKit
 
 public final class OpenSphericalCamera {
     
-    public let provider: KindKitApi.Api.Provider
+    public let provider: Api.Provider
     #if DEBUG
     public var logging: Api.Logging {
         set(value) { self.provider.logging = value }

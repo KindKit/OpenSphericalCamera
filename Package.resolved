@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/KindKit/KindKit.git",
       "state" : {
-        "revision" : "8863aa7362f0e13c850fd11012e9dc6a5bbecaea",
-        "version" : "0.1.0"
+        "revision" : "d5cf2ed3326101c387b0bdc2924e37c2734dc9a4",
+        "version" : "0.2.0"
       }
     }
   ],

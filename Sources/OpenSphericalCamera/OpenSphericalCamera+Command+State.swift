@@ -3,8 +3,7 @@
 //
 
 import Foundation
-import KindKitCore
-import KindKitJson
+import KindKit
 
 public extension OpenSphericalCamera.Command {
     
@@ -41,7 +40,7 @@ extension OpenSphericalCamera.Command.State.StringRepresentable : IEnumDecodable
 
 extension OpenSphericalCamera.Command.State : IJsonDecoderAlias {
     
-    public typealias JsonDecoder = EnumJsonDecoder< StringRepresentable, StringRepresentable.RawValue.JsonDecoder >
+    public typealias JsonDecoder = Json.Coder.Enum< StringRepresentable, StringRepresentable.RawValue.JsonDecoder >
     
 }
 

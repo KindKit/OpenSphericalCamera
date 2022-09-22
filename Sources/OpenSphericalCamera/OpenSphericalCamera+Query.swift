@@ -3,8 +3,7 @@
 //
 
 import Foundation
-import KindKitApi
-import KindKitJson
+import KindKit
 
 public extension OpenSphericalCamera {
     
@@ -19,7 +18,7 @@ public extension OpenSphericalCamera {
             public init() {
             }
             
-            public func parse(meta: KindKitApi.Api.Response.Meta, data: Data?) -> Result {
+            public func parse(meta: Api.Response.Meta, data: Data?) -> Result {
                 if let data = data {
                     if let json = Json(data: data) {
                         do {
@@ -64,11 +63,11 @@ public extension OpenSphericalCamera {
                 }
             }
             
-            func parse(meta: KindKitApi.Api.Response.Meta, result data: Data) throws -> Success {
+            func parse(meta: Api.Response.Meta, result data: Data) throws -> Success {
                 throw Failure.invalidResponse
             }
 
-            func parse(meta: KindKitApi.Api.Response.Meta, result json: Json) throws -> Success {
+            func parse(meta: Api.Response.Meta, result json: Json) throws -> Success {
                 throw Failure.invalidResponse
             }
             

@@ -3,7 +3,7 @@
 //
 
 import XCTest
-import KindKitCore
+import KindKit
 import OpenSphericalCamera
 
 final class OpenSphericalCameraTests: XCTestCase {
