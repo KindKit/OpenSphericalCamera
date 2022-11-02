@@ -15,11 +15,13 @@ public extension OpenSphericalCamera.Query {
 public extension OpenSphericalCamera.Query.Download {
         
     static func request(
-        url: URL
+        url: URL,
+        timeout: TimeInterval
     ) -> Api.Request {
         return .init(
             method: .get,
-            path: .absolute(url)
+            path: .absolute(url),
+            timeout: timeout
         )
     }
     

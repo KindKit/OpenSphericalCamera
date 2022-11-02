@@ -15,14 +15,16 @@ public extension OpenSphericalCamera.Query {
 public extension OpenSphericalCamera.Query.Status {
         
     static func request(
-        id: String
+        id: String,
+        timeout: TimeInterval
     ) throws -> Api.Request {
         let json = Json()
         try json.encode(String.self, value: id, path: "id")
         return .init(
             method: .post,
             path: .relative("/osc/commands/status"),
-            body: .data(.json(json))
+            body: .data(.json(json)),
+            timeout: timeout
         )
     }
     

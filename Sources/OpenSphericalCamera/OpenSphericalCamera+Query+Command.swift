@@ -17,14 +17,16 @@ public extension OpenSphericalCamera.Query.Command {
     static func request<
         Request : IOpenSphericalCameraCommandRequest
     >(
-        request: Request
+        request: Request,
+        timeout: TimeInterval
     ) throws -> Api.Request {
         let json = Json()
         try json.encode(Request.JsonEncoder.self, value: request)
         return .init(
             method: .post,
             path: .relative("/osc/commands/execute"),
-            body: .data(.json(json))
+            body: .data(.json(json)),
+            timeout: timeout
         )
     }
     

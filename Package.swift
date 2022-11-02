@@ -15,7 +15,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/KindKit/KindKit.git",
-            .upToNextMajor(from: "0.2.12")
+            .upToNextMajor(from: "0.3.7")
         )
     ],
     targets: [

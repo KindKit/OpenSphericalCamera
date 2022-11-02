@@ -14,10 +14,13 @@ public extension OpenSphericalCamera.Query {
 
 public extension OpenSphericalCamera.Query.State {
         
-    static func request() -> Api.Request {
+    static func request(
+        timeout: TimeInterval
+    ) -> Api.Request {
         return .init(
             method: .post,
-            path: .relative("/osc/state")
+            path: .relative("/osc/state"),
+            timeout: timeout
         )
     }
     
