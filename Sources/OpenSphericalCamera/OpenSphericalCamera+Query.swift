@@ -19,6 +19,10 @@ public extension OpenSphericalCamera {
             }
             
             public func parse(meta: Api.Response.Meta, data: Data?) -> Result {
+                switch meta.statusCode {
+                case 503: return .failure(.busy)
+                default: break
+                }
                 if let data = data {
                     if let json = Json(data: data) {
                         do {
@@ -54,7 +58,7 @@ public extension OpenSphericalCamera {
                 case NSURLErrorDomain:
                     switch nsError.code {
                     case NSURLErrorUnknown: return .failure(.invalidRequest)
-                    case NSURLErrorNotConnectedToInternet: return .failure(.notConnected)
+                    case NSURLErrorNotConnectedToInternet: return .failure(.noConnection)
                     case NSURLErrorNetworkConnectionLost: return .failure(.connectionLost)
                     case NSURLErrorTimedOut: return .failure(.timeOut)
                     default: return .failure(.invalidResponse)
