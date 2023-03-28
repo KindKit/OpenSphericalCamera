@@ -12,7 +12,7 @@ public extension OpenSphericalCamera {
     > {
         
         public let battery: Float
-        public let specific: SpecificDecoder.Model
+        public let specific: SpecificDecoder.JsonModelDecoded
         
     }
     

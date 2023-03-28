@@ -10,11 +10,11 @@ public extension OpenSphericalCamera.Command {
     struct Parameters< ParametersEncoder : IJsonModelEncoder > {
         
         public let name: String
-        public let parameters: ParametersEncoder.Model
+        public let parameters: ParametersEncoder.JsonModelEncoded
         
         public init(
             name: String,
-            parameters: ParametersEncoder.Model
+            parameters: ParametersEncoder.JsonModelEncoded
         ) {
             self.name = name
             self.parameters = parameters

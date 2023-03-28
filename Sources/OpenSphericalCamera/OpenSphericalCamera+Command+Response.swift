@@ -10,7 +10,7 @@ public extension OpenSphericalCamera.Command {
     struct Response< SpecificDecoder : IJsonModelDecoder > {
         
         public let state: OpenSphericalCamera.Command.State
-        public let specific: SpecificDecoder.Model
+        public let specific: SpecificDecoder.JsonModelDecoded
 
     }
     

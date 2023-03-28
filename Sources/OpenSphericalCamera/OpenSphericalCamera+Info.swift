@@ -24,7 +24,7 @@ public extension OpenSphericalCamera {
         public let gyro: Bool
         public let uptime: TimeInterval
         public let versions: [OpenSphericalCamera.Version]
-        public let specific: SpecificDecoder.Model
+        public let specific: SpecificDecoder.JsonModelDecoded
         
     }
     

@@ -7,6 +7,6 @@ import KindKit
 
 public protocol IOpenSphericalCameraCommandRequest {
     
-    associatedtype JsonEncoder : IJsonModelEncoder where Self == JsonEncoder.Model
+    associatedtype JsonEncoder : IJsonModelEncoder where Self == JsonEncoder.JsonModelEncoded
     
 }
