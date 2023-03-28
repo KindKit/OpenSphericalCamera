@@ -12,7 +12,7 @@ public final class OpenSphericalCamera {
         set(value) { self.provider.logging = value }
         get { return self.provider.logging }
     }
-
+    
     public init(
         url: URL,
         configuration: URLSessionConfiguration = URLSessionConfiguration.default,
@@ -20,6 +20,7 @@ public final class OpenSphericalCamera {
     ) {
         self.provider = .init(
             url: url,
+            authenticationChallenge: .allowUntrusted,
             configuration: configuration,
             logging: logging
         )
