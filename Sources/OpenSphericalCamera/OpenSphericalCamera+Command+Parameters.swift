@@ -29,8 +29,8 @@ extension OpenSphericalCamera.Command.Parameters : IOpenSphericalCameraCommandRe
     public struct JsonEncoder : IJsonModelEncoder {
         
         public static func encode(_ model: OpenSphericalCamera.Command.Parameters< ParametersEncoder >, json: Json) throws {
-            try json.encode(String.self, value: model.name, path: "name")
-            try json.encode(ParametersEncoder.self, value: model.parameters, path: "parameters")
+            try json.encode(String.self, value: model.name, path: [ "name" ])
+            try json.encode(ParametersEncoder.self, value: model.parameters, path: [ "parameters" ])
         }
         
     }

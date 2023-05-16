@@ -20,7 +20,7 @@ extension OpenSphericalCamera.Status : IJsonModelDecoder {
     
     public static func decode(_ json: Json) throws -> Self {
         return .init(
-            state: try json.decode(OpenSphericalCamera.Command.State.self, path: "state"),
+            state: try json.decode(OpenSphericalCamera.Command.State.self, path: [ "state" ]),
             specific: try json.decode(SpecificDecoder.self)
         )
     }

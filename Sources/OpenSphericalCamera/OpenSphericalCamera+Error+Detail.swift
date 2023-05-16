@@ -20,8 +20,8 @@ extension OpenSphericalCamera.Error.Detail : IJsonModelDecoder {
     
     public static func decode(_ json: Json) throws -> Self {
         return OpenSphericalCamera.Error.Detail(
-            code: try json.decode(String.self, path: "code"),
-            message: try json.decode(String.self, path: "message")
+            code: try json.decode(String.self, path: [ "code" ]),
+            message: try json.decode(String.self, path: [ "message" ])
         )
     }
     

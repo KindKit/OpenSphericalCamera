@@ -2,19 +2,19 @@
 // OpenSphericalCamera
 //
 
-import Foundation
+import KindKit
 
 public extension OpenSphericalCamera {
     
     enum Error : Swift.Error {
         
-        case invalidRequest
-        case invalidResponse
-        case noConnection
-        case connectionLost
-        case timeOut
-        case busy
+        case unknown
+        case request(Api.Error.Request)
+        case network(Api.Error.Network)
+        case parse(Api.Error.Parse)
+        case json(Json.Error.Coding)
         case detail(Detail)
+        case busy
         
     }
     
@@ -22,11 +22,22 @@ public extension OpenSphericalCamera {
 
 public extension OpenSphericalCamera.Error {
     
-    @inlinable
     var canRetry: Bool {
         switch self {
-        case .invalidRequest, .invalidResponse, .detail: return false
-        case .noConnection, .connectionLost, .timeOut, .busy: return true
+        case .unknown: return false
+        case .request: return false
+        case .network(let error):
+            switch error {
+            case .notConnected: return true
+            case .lost: return true
+            case .untrusted: return false
+            case .timeout: return true
+            case .cancelled: return false
+            }
+        case .parse: return false
+        case .json: return false
+        case .detail: return false
+        case .busy: return true
         }
     }
     
